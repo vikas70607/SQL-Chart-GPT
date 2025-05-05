@@ -34,7 +34,7 @@ def execute_sql_query(sql_query):
 
         # If no results are returned, return an appropriate message
         if not results:
-            return "No results found."
+            return None
 
         # Format the results into a readable string
         formatted_result = "Here are the results:\n"
