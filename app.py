@@ -13,7 +13,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/sqlgpt')
 def index():
-    return jsonify({'message': 'API running successfully'}), 200
+    return jsonify({'message': 'APP running successfully'}), 200
 
 @app.route('/sqlgpt/query', methods=['POST'])
 def convert_query():
