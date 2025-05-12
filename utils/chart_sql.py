@@ -45,7 +45,7 @@ def execute_sql_query(sql_query):
             # Format each row with column names and corresponding values
             formatted_result += f"Row {idx}: [" + ", ".join([f"{columns[i]}: {row[i]}" for i in range(len(columns))]) + "]\n"
 
-        return formatted_result,os.getenv('DB_CONNECTION_STRING')
+        return formatted_result
     
     except pyodbc.Error as e:
         # Return an error message if the query fails
