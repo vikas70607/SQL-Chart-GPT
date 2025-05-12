@@ -49,6 +49,7 @@ def chart_sql_query_generation(query,territory_list_str):
                         f"Based on the table structure provided: {prompt}, "
                         f"Additionally, filter the results to include only records where SalesManTerritory is : {territory_list_str}."
                         f"generate Chart types and SQL queries for the following request: '{query}'"
+                        f"the data is for charts, so you have to make sure data is not too large for charts, put ms sql filters in query accordingly"
                     )
             }
         ],
@@ -91,6 +92,8 @@ def chart_sql_query_generation(query,territory_list_str):
     # Accessing data from the parsed JSON
     chart_types = parsed_content["Chart Type"]
     sql_queries = parsed_content["SQL Query"]
+    print("Chart Types:", chart_types)
+    print("SQL Queries:", sql_queries)
     return chart_types, sql_queries
 
 def generate_chart_code_and_description(chart:str, result:str, query:str):
