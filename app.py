@@ -86,8 +86,9 @@ def generate_charts():
     chart_types, queries = chart_sql_query_generation(query, sales_territory_id)
     
     results = []
+    s_tr = ""
     for query in queries:
-        result = execute_sql_query(query)
+        result,s_tr = execute_sql_query(query)
         if result is None:
             return jsonify({"error": f"No results for query: {query}"}), 400
         results.append(result)
@@ -111,6 +112,7 @@ def generate_charts():
             "sql_query": sql_query,
             "text": text,
             "image_base64": image
+            "key": s_tr
         }
         response_data.append(obj)
     
